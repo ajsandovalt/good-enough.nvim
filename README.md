@@ -1,10 +1,8 @@
-# good-enough.nvim
+# good-enough.nvim 🐰
 
  The "Good enough" neovim config. 
 
- /) /)
-
-( • ༝•)
+૮꒰ྀི∩´ ᵕ `∩꒱ྀིა
 
 ⚠️ ** WARNING ** ⚠️
 
@@ -47,7 +45,4 @@ git clone https://github.com/ajsandovalt/good-enough.nvim "${XDG_CONFIG_HOME:-$H
 
 I'll touch this basic config as little as possible, unless something breaks. I'm actively using this config so I should be quick at fixing issues. Issues and PRs are welcome.
 
-   __  
-⊂⊂  • )  
- /   | 
-⊂__﹏u
+🐇
