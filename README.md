@@ -3,6 +3,7 @@
  The "Good enough" neovim config. 
 
  /) /)
+
 ( • ༝•)
 
 ⚠️ ** WARNING ** ⚠️
