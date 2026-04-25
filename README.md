@@ -4,9 +4,9 @@
 
 ૮꒰ྀི∩´ ᵕ `∩꒱ྀིა
 
-⚠️ ** WARNING ** ⚠️
+⚠️ **WARNING** ⚠️
 
-This is my personal neovim config and not a Neovim distro, I belive this is "Good enough" for you to build your own thing on top of it.
+This is my personal neovim config and not a neovim distro, I belive this is "Good enough" for you to build top of it.
 Forking and doing your own thing is the recommended path.
 
 ## What?
@@ -43,6 +43,6 @@ git clone https://github.com/ajsandovalt/good-enough.nvim "${XDG_CONFIG_HOME:-$H
 
 ## When?
 
-I'll touch this basic config as little as possible, unless something breaks. I'm actively using this config so I should be quick at fixing issues. Issues and PRs are welcome.
+I won't be touching this config much unless something breaks. I'm actively using this config so I should be quick at fixing issues. Issues and PRs are welcome nonetheless.
 
 🐇
