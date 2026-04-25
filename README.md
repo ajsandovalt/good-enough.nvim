@@ -6,7 +6,7 @@
 
 ⚠️ **WARNING** ⚠️
 
-This is my personal neovim config and not a neovim distro, I belive this is "Good enough" for you to build top of it.
+This is my personal neovim config and not a neovim distro, I belive this is "Good enough" for you to build on top of it.
 Forking and doing your own thing is the recommended path.
 
 ## What?
