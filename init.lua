@@ -1,7 +1,7 @@
 -- 🐰 Thank you for using my config!🐰 
--- ／(=⌒x⌒=)＼
+-- ／(=⌒ x ⌒=)＼
 vim.g.mapleader = ' '
-vim.o.background = "light" -- Sorry not sorry ligh-theme haters ૮₍ ´ ꒳ `₎ა 
+vim.o.background = "light" -- Sorry not sorry light-theme haters ૮₍ ´ ꒳ `₎ა 
 vim.o.termguicolors = true
 vim.o.smartindent = true
 vim.o.autoindent = true
