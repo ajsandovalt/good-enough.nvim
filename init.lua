@@ -1,13 +1,5 @@
 -- 🐰 Thank you for using my config!🐰 
--- ／(=⌒ x⌒ =)＼
--- This is the "Good Enough" neovim config, this is as barebones as I could tolerate and still we 
--- depend a little on packages that are either archived or soon to be archived. This is my attempt
--- at creating a config with as little dependencies as possible so if things break and no support is
--- provided we can still work / survive!
--- TODO: Tree Sitter Parsers ( Tree Sitter Manager is still heavily in-development and can't trust
--- nvim-treesitter anymore, maybe we need our own script or manage things manually)
-
--- Options:
+-- ／(=⌒x⌒=)＼
 vim.g.mapleader = ' '
 vim.o.background = "light" -- Sorry not sorry ligh-theme haters ૮₍ ´ ꒳ `₎ა 
 vim.o.termguicolors = true
@@ -24,10 +16,12 @@ vim.diagnostic.config({ virtual_text = true }) -- Enable inline diagnostics
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Clear search highlights with Esc.
 -- Exit Terminal mode with <Esc><Esc> as the default one is hard to access to non-us layouts (<C-\><C-n>)
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" }) -- Easier than omni
 -- Transparent background
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-
+-- Built-in autocompletion
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 -- Let's use the built-in package manager for Neovim!
  vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig"}, -- Check the lsp folder to fix the "Undefined global 'vim' " issue
@@ -42,7 +36,6 @@ vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
         version = 'harpoon2',
     },
  })
-
  -- Mason setup
 require("mason").setup()
 
@@ -51,6 +44,17 @@ require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
 	ensure_installed = {"lua_ls", "pyright", "gopls", "eslint_d"} -- Make sure to install the correct dependencies for your LSP! (Pyright will not install without node, gopls without go and so on)
 } )
+
+vim.lsp.config('*', {
+    on_attach = function(client, bufnr)
+      vim.lsp.completion.enable(true, client.id, bufnr, {
+		autotrigger = true,
+		convert = function(item)
+          return { abbr = item.label:gsub("%b()", "") }
+		end,
+      })
+    end
+})
 
 -- Tree Sitter Manager config
 -- You need tree-sitter-cli and a c compiler in yout PATH for this to work
@@ -72,20 +76,14 @@ require('mini.statusline').setup({
 
 -- Harpoon setup
 local harpoon = require("harpoon")
-
--- REQUIRED
 harpoon:setup()
--- REQUIRED
 
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 vim.keymap.set("n", "<C-l>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
 vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
 vim.keymap.set("n", "<C-5>", function() harpoon:list():select(5) end)
-
--- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-S-J>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-S-K>", function() harpoon:list():next() end)
